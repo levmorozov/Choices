@@ -44,13 +44,11 @@ describe('templates', () => {
               aria-autocomplete="list"
               aria-haspopup="true"
               aria-expanded="false"
-              dir="${direction}"
               >
             </div>
           `);
           const actualOutput = templates.containerOuter(
             classes,
-            direction,
             isSelectElement,
             isSelectOneElement,
             searchEnabled,
@@ -80,7 +78,6 @@ describe('templates', () => {
           `);
           const actualOutput = templates.containerOuter(
             classes,
-            direction,
             isSelectElement,
             isSelectOneElement,
             searchEnabled,
@@ -112,7 +109,6 @@ describe('templates', () => {
           `);
           const actualOutput = templates.containerOuter(
             classes,
-            direction,
             isSelectElement,
             isSelectOneElement,
             searchEnabled,
@@ -137,13 +133,11 @@ describe('templates', () => {
             data-type="${passedElementType}"
             aria-haspopup="true"
             aria-expanded="false"
-            dir="${direction}"
             >
           </div>
         `);
         const actualOutput = templates.containerOuter(
           classes,
-          direction,
           isSelectElement,
           isSelectOneElement,
           searchEnabled,

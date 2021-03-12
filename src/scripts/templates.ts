@@ -8,7 +8,6 @@ import { ClassNames, Item, Choice, Group, PassedElement } from './interfaces';
 const templates = {
   containerOuter(
     { containerOuter }: Pick<ClassNames, 'containerOuter'>,
-    dir: HTMLElement['dir'],
     isSelectElement: boolean,
     isSelectOneElement: boolean,
     searchEnabled: boolean,
@@ -19,10 +18,6 @@ const templates = {
     });
 
     div.dataset.type = passedElementType;
-
-    if (dir) {
-      div.dir = dir;
-    }
 
     if (isSelectOneElement) {
       div.tabIndex = 0;

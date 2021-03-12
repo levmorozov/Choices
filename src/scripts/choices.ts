@@ -105,7 +105,6 @@ class Choices {
   _isSearching: boolean;
   _placeholderValue: string | null;
   _baseId: string;
-  _direction: HTMLElement['dir'];
   _idNames: {
     itemChoice: string;
   };
@@ -204,24 +203,6 @@ class Choices {
     this._wasTap = true;
     this._placeholderValue = this._generatePlaceholderValue();
     this._baseId = generateId(this.passedElement.element, 'choices-');
-
-    /**
-     * setting direction in cases where it's explicitly set on passedElement
-     * or when calculated direction is different from the document
-     */
-    this._direction = this.passedElement.dir;
-
-    if (!this._direction) {
-      const { direction: elementDirection } = window.getComputedStyle(
-        this.passedElement.element,
-      );
-      const { direction: documentDirection } = window.getComputedStyle(
-        document.documentElement,
-      );
-      if (elementDirection !== documentDirection) {
-        this._direction = elementDirection;
-      }
-    }
 
     this._idNames = {
       itemChoice: 'item-choice',
@@ -1688,10 +1669,7 @@ class Choices {
       const firstChoice = this.choiceList.element
         .firstElementChild as HTMLElement;
 
-      const isOnScrollbar =
-        this._direction === 'ltr'
-          ? event.offsetX >= firstChoice.offsetWidth
-          : event.offsetX < firstChoice.offsetLeft;
+      const isOnScrollbar = event.offsetX >= firstChoice.offsetWidth;
       this._isScrollingOnIe = isOnScrollbar;
     }
 
@@ -2102,7 +2080,6 @@ class Choices {
     this.containerOuter = new Container({
       element: this._getTemplate(
         'containerOuter',
-        this._direction,
         this._isSelectElement,
         this._isSelectOneElement,
         this.config.searchEnabled,
@@ -2257,8 +2234,6 @@ class Choices {
 
           const isSelected = shouldPreselect ? true : choice.selected;
           const isDisabled = choice.disabled;
-
-          console.log(isDisabled, choice);
 
           this._addChoice({
             value,

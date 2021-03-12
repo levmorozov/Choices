@@ -13,7 +13,7 @@ const prodConfig = deepMerge(
     mode: 'production',
     output: {
       path: path.join(__dirname, '/public/assets/scripts'),
-      publicPath: '/public/assets/scripts/',
+      //publicPath: '/public/assets/scripts/',
     },
     plugins: [
       new BannerPlugin(

@@ -2,10 +2,10 @@ import { EventMap, Choice } from '../interfaces';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-export const getRandomNumber = (min: number, max: number): number =>
+const getRandomNumber = (min: number, max: number): number =>
   Math.floor(Math.random() * (max - min) + min);
 
-export const generateChars = (length: number): string =>
+const generateChars = (length: number): string =>
   Array.from({ length }, () => getRandomNumber(0, 36).toString(36)).join('');
 
 export const generateId = (

@@ -2,8 +2,8 @@
 import { expect } from 'chai';
 import { stub } from 'sinon';
 import {
-  getRandomNumber,
-  generateChars,
+  //getRandomNumber,
+  //generateChars,
   generateId,
   getType,
   isType,
@@ -17,7 +17,7 @@ import {
 } from './utils';
 
 describe('utils', () => {
-  describe('getRandomNumber', () => {
+ /* describe('getRandomNumber', () => {
     it('returns random number between range', () => {
       for (let index = 0; index < 10; index++) {
         const output = getRandomNumber(1, 10);
@@ -33,7 +33,7 @@ describe('utils', () => {
       expect(output).to.be.a('string');
       expect(output).to.have.length(10);
     });
-  });
+  });*/
 
   describe('generateId', () => {
     describe('when given element has id value', () => {
